@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import cover from 'statics/dummy/cover.jpg';
 import './stylesheet.scss';
+import { EssayThumbnail } from 'components';
 
 class Home extends Component {
   render() {
@@ -16,8 +17,7 @@ class Home extends Component {
           <div className="essays">
             {
               new Array(8).fill(0).map((_, i) => (
-                <div className="essay" key={i}>
-                </div>
+                <EssayThumbnail className="essayThumbnail" key={i}/>
               ))
             }
           </div>

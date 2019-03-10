@@ -1,0 +1,81 @@
+@import "~common/constants";
+
+.EssayThumbnail {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background-color: white;
+  box-shadow: rgba(black, .2) 0 0 4px;
+
+  .body {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+    padding: 1rem;
+
+    .college {
+      font-size: $font-size-small;
+      font-weight: bold;
+      margin-bottom: .5rem;
+    }
+
+    .prompt {
+      font-weight: bold;
+      margin-bottom: .5rem;
+    }
+
+    .content {
+      font-size: $font-size-small;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 12rem;
+      background-image: linear-gradient(to top, white, rgba(white, 0));
+    }
+  }
+
+  .head {
+    padding: .5rem;
+    background-color: $color-font-dim;
+    color: $color-background;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .profile {
+      display: flex;
+      align-items: center;
+
+      .picture {
+        width: $font-size-large;
+        height: $font-size-large;
+        margin-right: .5rem;
+        border-radius: .2rem;
+      }
+
+      .icon {
+        margin-right: .5rem;
+      }
+
+      .name {
+        font-size: $font-size-small;
+      }
+
+    }
+
+    .deadline {
+      font-size: $font-size-small;
+
+      .bold {
+        font-weight: bold;
+      }
+    }
+  }
+}

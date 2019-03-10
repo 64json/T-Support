@@ -46,7 +46,7 @@
 
   .section {
     align-self: center;
-    max-width: 80rem;
+    max-width: $width-body-wide;
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -61,11 +61,10 @@
       justify-content: center;
       flex-wrap: wrap;
 
-      .essay {
+      .essayThumbnail {
         width: 16rem;
         height: 16rem;
         margin: 2rem;
-        background-color: $color-highlight-dim;
       }
     }
   }
