@@ -1,7 +1,7 @@
 import { Search } from 'pages';
 import './stylesheet.scss';
 
-class Review extends Search {
+class Sample extends Search {
 }
 
-export default Review;
+export default Sample;

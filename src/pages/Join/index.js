@@ -3,7 +3,7 @@ import { Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { actions } from 'reducers';
 import ReCAPTCHA from 'react-google-recaptcha';
-import profile_picture from 'statics/dummy/profile_picture.jpg';
+import profile_picture from 'statics/dummy/profile_picture_0.jpg';
 import { recaptchaSiteKey } from 'common/constants';
 import { Button, Dialog, Field, Page } from 'components';
 import './stylesheet.scss';

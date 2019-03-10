@@ -17,3 +17,8 @@ a {
   color: inherit;
   text-decoration: inherit;
 }
+
+*:after,
+*:before {
+  white-space: pre-wrap;
+}

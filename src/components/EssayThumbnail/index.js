@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import profile_picture from 'statics/dummy/profile_picture.jpg';
+import profile_picture_0 from 'statics/dummy/profile_picture_0.jpg';
+import profile_picture_1 from 'statics/dummy/profile_picture_1.jpg';
+import profile_picture_2 from 'statics/dummy/profile_picture_2.jpg';
 import { classes } from 'common/utils';
 import './stylesheet.scss';
 
 class EssayThumbnail extends Component {
   render() {
-    const { className } = this.props;
+    const { className, decision } = this.props;
 
     return (
       <div className={classes('EssayThumbnail', className)}>
@@ -21,11 +23,25 @@ class EssayThumbnail extends Component {
           </div>
         </div>
         <div className="head">
-          <div className="profile">
-            <img className="picture" src={profile_picture} alt="profile"/>
-            <span className="name">Daniel</span>
+          <div className="applicant">
+            <div className="profile">
+              <img className="picture" src={profile_picture_0} alt="profile"/>
+              <span className="name">Daniel</span>
+            </div>
+            {
+              decision ?
+                <span className={classes('decision', decision)}>{decision}</span> :
+                <span className="deadline">Feb. 1</span>
+            }
           </div>
-          <span className="deadline">Due on <span className="bold">Feb. 1</span></span>
+          <div className="reviewer">
+            <div className="profile">
+              <img className="picture" src={profile_picture_1} alt="profile"/>
+              <img className="picture" src={profile_picture_2} alt="profile"/>
+              <span className="name">Chris</span>
+              <span className="name">Yukt</span>
+            </div>
+          </div>
         </div>
       </div>
     );

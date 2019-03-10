@@ -17,7 +17,7 @@ class Home extends Component {
           <div className="essays">
             {
               new Array(8).fill(0).map((_, i) => (
-                <EssayThumbnail className="essayThumbnail" key={i}/>
+                <EssayThumbnail className="essayThumbnail" key={i} decision="accepted"/>
               ))
             }
           </div>

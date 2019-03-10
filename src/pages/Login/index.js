@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { actions } from 'reducers';
-import profile_picture from 'statics/dummy/profile_picture.jpg';
+import profile_picture from 'statics/dummy/profile_picture_0.jpg';
 import { Button, Dialog, Field, Page } from 'components';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import './stylesheet.scss';

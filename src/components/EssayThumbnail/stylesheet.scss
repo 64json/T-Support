@@ -6,6 +6,7 @@
   align-items: stretch;
   background-color: white;
   box-shadow: rgba(black, .2) 0 0 4px;
+  overflow: hidden;
 
   .body {
     position: relative;
@@ -42,12 +43,12 @@
   }
 
   .head {
-    padding: .5rem;
-    background-color: $color-font-dim;
-    color: $color-background;
+    position: relative;
+    color: $color-font;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: stretch;
+    flex-direction: column;
+    box-shadow: rgba(black, .2) 0 0 4px;
 
     .profile {
       display: flex;
@@ -56,25 +57,77 @@
       .picture {
         width: $font-size-large;
         height: $font-size-large;
-        margin-right: .5rem;
-        border-radius: .2rem;
-      }
+        margin-right: .2rem;
+        border: 2px solid white;
+        border-radius: $font-size-large;
+        box-sizing: content-box;
 
-      .icon {
-        margin-right: .5rem;
+        & + .picture {
+          margin-left: -.8rem;
+        }
       }
 
       .name {
         font-size: $font-size-small;
+
+        & + .name {
+          &:before {
+            content: ' and ';
+            color: $color-font-dim;
+          }
+        }
       }
 
     }
 
-    .deadline {
-      font-size: $font-size-small;
+    .applicant,
+    .reviewer {
+      display: flex;
+      align-items: center;
+      padding: .4rem .6rem;
+    }
 
-      .bold {
+    .applicant {
+      justify-content: space-between;
+
+      .decision {
+        font-size: $font-size-small;
+        text-transform: capitalize;
         font-weight: bold;
+
+        &.accepted {
+          color: $color-accepted;
+        }
+
+        &.rejected {
+          color: $color-rejected;
+        }
+
+        &.waitlisted {
+          color: $color-waitlisted;
+        }
+      }
+
+      .deadline {
+        font-size: $font-size-small;
+        font-weight: bold;
+
+        &:before {
+          content: 'Due on ';
+          color: $color-font-dim;
+          font-weight: normal;
+        }
+      }
+    }
+
+    .reviewer {
+      margin-top: -.6rem;
+      justify-content: flex-start;
+
+      &:after {
+        content: ' reviewed.';
+        font-size: $font-size-small;
+        color: $color-font-dim;
       }
     }
   }

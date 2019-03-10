@@ -3,6 +3,7 @@ import { Button, Field, Page, Row } from 'components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
 import './stylesheet.scss';
+import { COLLEGES, MAJORS, PROMPTS } from '../../common/dummies';
 
 class Upload extends Page {
   constructor(props) {
@@ -33,20 +34,21 @@ class Upload extends Page {
             <Field label="College">
               <select>
                 <option></option>
-                <option>Georgia Institute of Techonology</option>
-                <option>Emory University</option>
-                <option>University of Georgia</option>
-                <option>Georgia State University</option>
-                <option>Spelman College</option>
-                <option>Mercer University</option>
+                {
+                  COLLEGES.map(college => (
+                    <option key={college} value={college}>{college}</option>
+                  ))
+                }
               </select>
             </Field>
             <Field label="Major" optional>
               <select>
                 <option></option>
-                <option>Computer Science</option>
-                <option>Mechanical Engineering</option>
-                <option>Electrical and Computer Engineering</option>
+                {
+                  MAJORS.map(major => (
+                    <option key={major} value={major}>{major}</option>
+                  ))
+                }
               </select>
             </Field>
           </Row>
@@ -54,7 +56,11 @@ class Upload extends Page {
             <Field label="Prompt">
               <select>
                 <option></option>
-                <option>Why Georgia Tech?</option>
+                {
+                  PROMPTS.map(prompt => (
+                    <option key={prompt} value={prompt}>{prompt}</option>
+                  ))
+                }
               </select>
             </Field>
             <Field label="Deadline" optional>
