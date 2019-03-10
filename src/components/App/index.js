@@ -45,6 +45,7 @@ class App extends Component {
 
   render() {
     const { user } = this.props.env;
+    const { pathname } = this.props.location;
     const { sticky } = this.state;
 
     return (
@@ -55,18 +56,16 @@ class App extends Component {
             <span className="title">BestForLast</span>
           </Link>
           <div className="menu">
-            <Link className="item" to="/upload">
-              Upload an Essay
-            </Link>
-            <Link className="item" to="/review">
-              Review an Essay
-            </Link>
-            <Link className="item" to="/sample">
-              Sample Essays
-            </Link>
-            <Link className="item" to="/forum">
-              College Forum
-            </Link>
+            {
+              [
+                ['Upload an Essay', '/upload'],
+                ['Review an Essay', '/review'],
+                ['Sample Essays', '/sample'],
+                ['College Forum', '/forum'],
+              ].map(([menu, to]) => (
+                <Link className={classes('item', pathname.startsWith(to) && 'selected')} to={to}>{menu}</Link>
+              ))
+            }
           </div>
           {
             user ?

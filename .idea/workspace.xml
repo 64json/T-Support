@@ -2,25 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dfe655d8-46cf-4aee-baae-0506ab8518ce" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/common/dummies.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Sample/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Sample/stylesheet.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Search/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Search/stylesheet.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/constants.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/constants.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/EssayThumbnail/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EssayThumbnail/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/EssayThumbnail/stylesheet.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EssayThumbnail/stylesheet.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/stylesheet.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/stylesheet.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Join/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Join/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Login/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Review/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Review/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Review/stylesheet.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Review/stylesheet.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Upload/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Upload/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/statics/dummy/profile_picture.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/statics/dummy/profile_picture_0.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home/stylesheet.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/stylesheet.scss" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -34,10 +20,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/EssayThumbnail/index.js">
+        <entry file="file://$PROJECT_DIR$/src/components/App/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="28" column="43" lean-forward="true" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
+            <state relative-caret-position="170">
+              <caret line="57" column="29" lean-forward="true" selection-start-line="57" selection-start-column="29" selection-end-line="57" selection-end-column="29" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -46,13 +32,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/pages/Home/index.js">
+        <entry file="file://$PROJECT_DIR$/src/components/App/stylesheet.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="85" selection-start-line="19" selection-start-column="85" selection-end-line="19" selection-end-column="85" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="454">
+              <caret line="71" column="34" lean-forward="true" selection-start-line="71" selection-start-column="34" selection-end-line="72" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -112,7 +95,6 @@
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/components/NotFound/index.js" />
         <option value="$PROJECT_DIR$/src/components/NotFound/stylesheet.scss" />
-        <option value="$PROJECT_DIR$/src/components/App/stylesheet.scss" />
         <option value="$PROJECT_DIR$/src/components/Home/index.js" />
         <option value="$PROJECT_DIR$/static.json" />
         <option value="$PROJECT_DIR$/src/components/Dialog/index.js" />
@@ -139,7 +121,6 @@
         <option value="$PROJECT_DIR$/src/pages/Upload/stylesheet.scss" />
         <option value="$PROJECT_DIR$/src/pages/Review/Review.js" />
         <option value="$PROJECT_DIR$/src/components/index.js" />
-        <option value="$PROJECT_DIR$/src/pages/Home/stylesheet.scss" />
         <option value="$PROJECT_DIR$/src/components/Field/stylesheet.scss" />
         <option value="$PROJECT_DIR$/src/common/dummies.js" />
         <option value="$PROJECT_DIR$/src/pages/Upload/index.js" />
@@ -148,14 +129,16 @@
         <option value="$PROJECT_DIR$/src/pages/Sample/stylesheet.scss" />
         <option value="$PROJECT_DIR$/src/pages/Sample/index.js" />
         <option value="$PROJECT_DIR$/src/pages/index.js" />
-        <option value="$PROJECT_DIR$/src/components/App/index.js" />
         <option value="$PROJECT_DIR$/src/pages/Search/index.js" />
         <option value="$PROJECT_DIR$/src/common/constants.scss" />
         <option value="$PROJECT_DIR$/src/pages/Search/stylesheet.scss" />
         <option value="$PROJECT_DIR$/src/index.scss" />
         <option value="$PROJECT_DIR$/src/components/EssayThumbnail/index.js" />
         <option value="$PROJECT_DIR$/src/components/EssayThumbnail/stylesheet.scss" />
+        <option value="$PROJECT_DIR$/src/pages/Home/stylesheet.scss" />
         <option value="$PROJECT_DIR$/src/pages/Home/index.js" />
+        <option value="$PROJECT_DIR$/src/components/App/index.js" />
+        <option value="$PROJECT_DIR$/src/components/App/stylesheet.scss" />
       </list>
     </option>
   </component>
@@ -190,6 +173,13 @@
               <item name="best-for-last" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="best-for-last" type="b2602c69:ProjectViewProjectNode" />
+              <item name="best-for-last" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="App" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="best-for-last" type="b2602c69:ProjectViewProjectNode" />
@@ -292,12 +282,12 @@
       <option name="presentableId" value="Default" />
       <updated>1552195793930</updated>
       <workItem from="1552195796267" duration="487000" />
-      <workItem from="1552196338889" duration="25868000" />
+      <workItem from="1552196338889" duration="26258000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26355000" />
+    <option name="totallyTimeSpent" value="26745000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -308,7 +298,7 @@
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32959184" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32959184" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32959184" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -317,7 +307,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32959184" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32959184" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -532,20 +522,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/App/stylesheet.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="99" column="5" lean-forward="true" selection-start-line="99" selection-start-column="5" selection-end-line="99" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/Home/stylesheet.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="50" column="18" lean-forward="true" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Field/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -639,16 +615,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/App/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Page/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -710,13 +676,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/Home/stylesheet.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="47" column="23" lean-forward="true" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/Home/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="85" selection-start-line="19" selection-start-column="85" selection-end-line="19" selection-end-column="85" />
+        <state relative-caret-position="225">
+          <caret line="15" column="50" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/App/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="57" column="29" lean-forward="true" selection-start-line="57" selection-start-column="29" selection-end-line="57" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/App/stylesheet.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="71" column="34" lean-forward="true" selection-start-line="71" selection-start-column="34" selection-end-line="72" selection-end-column="32" />
         </state>
       </provider>
     </entry>

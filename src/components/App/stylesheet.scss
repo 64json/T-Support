@@ -73,8 +73,11 @@
           transition: width .2s;
         }
 
-        &:hover:after {
-          width: 100%;
+        &:hover,
+        &.selected {
+          &:after {
+            width: 100%;
+          }
         }
       }
     }
