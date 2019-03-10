@@ -1,0 +1,73 @@
+@import "~common/constants";
+
+.Home {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  .cover {
+    align-self: stretch;
+    z-index: -1;
+    height: 36rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba($color-background, .2);
+    }
+
+    .quotes {
+      margin-top: $height-navigation;
+      position: relative;
+      color: white;
+      font-size: 2rem;
+      max-width: 40rem;
+      text-shadow: rgba(black, .5) 0 0 4px;
+      text-align: center;
+
+      &:before {
+        content: "“ ";
+      }
+
+      &:after {
+        content: " ”";
+      }
+    }
+  }
+
+  .section {
+    align-self: center;
+    max-width: 80rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .title {
+
+    }
+
+    .essays {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      .essay {
+        width: 16rem;
+        height: 16rem;
+        margin: 2rem;
+        background-color: cornflowerblue;
+      }
+    }
+  }
+}

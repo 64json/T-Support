@@ -1,33 +1,99 @@
+@import "~common/constants";
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  align-items: stretch;
 
-.App-link {
-  color: #61dafb;
-}
+  .navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: $height-navigation;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    color: white;
+    text-shadow: rgba(black, .2) 0 0 4px;
+    transition: all .2s;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+    &.sticky {
+      background-color: white;
+      color: $color-font;
+      text-shadow: none;
+      box-shadow: rgba(black, .5) 0 0 4px;
+
+      .menu {
+        .item {
+          &:after {
+            background-color: $color-font;
+          }
+        }
+      }
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      margin-right: 4rem;
+      font-size: $font-size-large;
+
+      .icon {
+        margin-right: .2rem;
+      }
+
+      .title {
+      }
+    }
+
+    .menu {
+      list-style: none;
+      display: flex;
+      align-items: stretch;
+      margin: 0 4rem 0 0;
+
+      .item {
+        position: relative;
+        padding: 0 1rem;
+        display: flex;
+        align-items: center;
+
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: .2rem;
+          background-color: white;
+          transition: width .2s;
+        }
+
+        &:hover:after {
+          width: 100%;
+        }
+      }
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+
+      .picture {
+        width: 2rem;
+        height: 2rem;
+        margin-right: .5rem;
+        border-radius: .2rem;
+      }
+
+      .name {
+
+      }
+    }
   }
-  to {
-    transform: rotate(360deg);
+
+  .page {
+    min-height: 100vh;
   }
 }
