@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Route, withRouter } from 'react-router-dom';
+import { Link, Route, Switch, withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenNib } from '@fortawesome/free-solid-svg-icons';
 import { Home } from 'components';
@@ -72,7 +72,9 @@ class App extends Component {
           </Link>
         </header>
         <div className="page">
-          <Route exact path="/" component={Home}/>
+          <Switch>
+            <Route exact path="/" component={Home}/>
+          </Switch>
         </div>
       </div>
     );
