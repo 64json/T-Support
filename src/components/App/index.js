@@ -57,10 +57,10 @@ class App extends Component {
           </Link>
           <div className="menu">
             <Link className="item" to="/upload">
-              Upload Essay
+              Upload an Essay
             </Link>
             <Link className="item" to="/review">
-              Review Essay
+              Review an Essay
             </Link>
             <Link className="item" to="/essays">
               Example Essays

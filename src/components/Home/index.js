@@ -12,7 +12,7 @@ class Home extends Component {
           </span>
         </div>
         <section className="section">
-          <h1 className="title">Popular Essays</h1>
+          <h1 className="title">Most Viewed Essays</h1>
           <div className="essays">
             {
               new Array(8).fill(0).map((_, i) => (
