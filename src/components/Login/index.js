@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import './stylesheet.scss';
 import { Link, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { actions } from 'reducers';
 import profile_picture from 'statics/dummy/profile_picture.jpg';
+import { Button, Dialog, Field } from 'components';
+import './stylesheet.scss';
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 class Login extends Component {
   handleSubmit = e => {
@@ -20,20 +22,20 @@ class Login extends Component {
     return (
       user ? <Redirect to="/"/> :
         <div className="Login">
-          <form className="container" onSubmit={this.handleSubmit}>
-            <label className="field">
-              <span className="label">Email</span>
+          <Dialog className="dialog" onSubmit={this.handleSubmit}>
+            <Button className="linkedIn" icon={faLinkedin}>Sign in with LinkedIn</Button>
+            <div className="divider"/>
+            <Field label="Email">
               <input type="text"/>
-            </label>
-            <label className="field">
-              <span className="label">Password</span>
+            </Field>
+            <Field label="Password">
               <input type="password"/>
-            </label>
-            <button className="button">Login</button>
+            </Field>
+            <Button>Login</Button>
             <Link className="link" to="/join">
               Create an account.
             </Link>
-          </form>
+          </Dialog>
         </div>
     );
   }

@@ -3,9 +3,8 @@ import { connect } from 'react-redux';
 import { Link, Route, Switch, withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock, faPenNib } from '@fortawesome/free-solid-svg-icons';
-import { Home, Login, NotFound } from 'components';
+import { Home, Join, Login, NotFound } from 'components';
 import { classes } from 'common/utils';
-import profile_picture from 'statics/dummy/profile_picture.jpg';
 import { actions } from 'reducers';
 import './stylesheet.scss';
 
@@ -72,8 +71,8 @@ class App extends Component {
           {
             user ?
               <Link className="profile" to="/profile">
-                <img className="picture" src={profile_picture} alt="profile"/>
-                <span className="name">Daniel Stern</span>
+                <img className="picture" src={user.picture} alt="profile"/>
+                <span className="name">{user.name}</span>
               </Link> :
               <Link className="profile" to="/login">
                 <FontAwesomeIcon className="icon" icon={faLock}/>
@@ -85,6 +84,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home}/>
             <Route exact path="/login" component={Login}/>
+            <Route exact path="/join" component={Join}/>
             <Route component={NotFound}/>
           </Switch>
         </div>

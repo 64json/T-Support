@@ -7,30 +7,32 @@
   align-items: center;
   justify-content: center;
 
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    background-color: white;
-    padding: 2rem;
-    width: 20rem;
-    border: 1px solid #DDDDDD;
-    border-radius: 5px;
+  .dialog {
+    .linkedIn {
+      background-color: #0177B5;
+    }
 
-    .field {
+    .divider {
+      position: relative;
+      align-self: stretch;
+      height: 1px;
+      background-color: $color-background;
+      margin: 1rem 0 1.2rem;
       display: flex;
-      flex-direction: column;
-      margin-bottom: 1rem;
+      justify-content: center;
 
-      .label {
-        font-size: $font-size-small;
-        font-weight: bold;
-        margin-bottom: .2rem;
+      &:after {
+        content: 'or';
+        position: absolute;
+        top: -1rem;
+        background-color: white;
+        color: $color-font-dim;
+        padding: .5rem;
+        line-height: 1rem;
       }
     }
 
     .link {
-      margin-top: .2rem;
       align-self: flex-end;
       font-size: $font-size-small;
     }
