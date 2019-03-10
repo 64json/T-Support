@@ -1,0 +1,9 @@
+@import "~common/constants";
+
+.NotFound {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: $height-navigation;
+}
