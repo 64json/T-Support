@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { actions } from 'reducers';
 import ReCAPTCHA from 'react-google-recaptcha';
 import profile_picture from 'statics/dummy/profile_picture.jpg';
 import { recaptchaSiteKey } from 'common/constants';
-import { Button, Dialog, Field } from 'components';
+import { Button, Dialog, Field, Page } from 'components';
 import './stylesheet.scss';
 
-class Join extends Component {
+class Join extends Page {
   handleSubmit = e => {
     e.preventDefault();
     this.props.setUser({
@@ -17,7 +17,7 @@ class Join extends Component {
     });
   };
 
-  render() {
+  renderPage() {
     const { user } = this.props.env;
 
     return (
