@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link, Route, Switch, withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock, faPenNib } from '@fortawesome/free-solid-svg-icons';
-import { Home, Join, Login, NotFound, Review, Sample, Upload } from 'pages';
+import { Essay, Home, Join, Login, NotFound, Review, Sample, Upload } from 'pages';
 import { classes } from 'common/utils';
 import { actions } from 'reducers';
 import './stylesheet.scss';
@@ -87,6 +87,7 @@ class App extends Component {
             <Route exact path="/upload" component={Upload}/>
             <Route exact path="/review" component={Review}/>
             <Route exact path="/sample" component={Sample}/>
+            <Route exact path="/essay/:essayId" component={Essay}/>
             <Route component={NotFound}/>
           </Switch>
         </div>

@@ -1,22 +1,19 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { Page } from 'components';
 import profile_picture_0 from 'statics/dummy/profile_picture_0.jpg';
 import profile_picture_1 from 'statics/dummy/profile_picture_1.jpg';
 import profile_picture_2 from 'statics/dummy/profile_picture_2.jpg';
-import { classes } from 'common/utils';
 import { LOREM } from 'common/dummies';
 import './stylesheet.scss';
 
-class EssayThumbnail extends Component {
-  render() {
-    const { className, decision } = this.props;
-
+class Essay extends Page {
+  renderPage() {
     return (
-      <Link className={classes('EssayThumbnail', className)} to="/essay/loremipsum">
+      <div className="Essay">
         <div className="body">
           <span className="college">Georgia Institute of Technology</span>
           <span className="prompt">Why Georgia Tech?</span>
-          <div className="content">{LOREM}</div>
+          <div className="content" contentEditable="true">{LOREM}</div>
         </div>
         <div className="head">
           <div className="applicant">
@@ -24,11 +21,7 @@ class EssayThumbnail extends Component {
               <img className="picture" src={profile_picture_0} alt="profile"/>
               <span className="name">Daniel</span>
             </div>
-            {
-              decision ?
-                <span className={classes('decision', decision)}>{decision}</span> :
-                <span className="deadline">Feb. 1</span>
-            }
+            <span className="deadline">Feb. 1</span>
           </div>
           <div className="reviewer">
             <div className="profile">
@@ -39,9 +32,9 @@ class EssayThumbnail extends Component {
             </div>
           </div>
         </div>
-      </Link>
+      </div>
     );
   }
 }
 
-export default EssayThumbnail;
+export default Essay;
