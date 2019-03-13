@@ -1,4 +1,6 @@
-import React from 'react';
+import profile_picture_0 from 'statics/dummy/profile_picture_0.jpg';
+import profile_picture_1 from 'statics/dummy/profile_picture_1.jpg';
+import profile_picture_2 from 'statics/dummy/profile_picture_2.jpg';
 
 const COLLEGES = [
   'Georgia Institute of Techonology',
@@ -39,9 +41,27 @@ Ornare lectus sit amet est placerat. In ante metus dictum at tempor. Cursus vita
 
 Condimentum id venenatis a condimentum vitae. Suscipit tellus mauris a diam maecenas sed enim. At consectetur lorem donec massa sapien. Vitae congue mauris rhoncus aenean vel elit scelerisque mauris pellentesque. Convallis convallis tellus id interdum velit. Sem fringilla ut morbi tincidunt augue interdum velit euismod in. Tortor at auctor urna nunc id cursus. Scelerisque varius morbi enim nunc faucibus a pellentesque sit. Nisl suscipit adipiscing bibendum est ultricies integer quis auctor elit. Lorem donec massa sapien faucibus et molestie. Faucibus purus in massa tempor. Sed id semper risus in hendrerit. Nec sagittis aliquam malesuada bibendum arcu. Praesent semper feugiat nibh sed pulvinar proin gravida hendrerit lectus. Ultricies mi quis hendrerit dolor magna eget est lorem ipsum. Pellentesque nec nam aliquam sem et tortor consequat. Etiam non quam lacus suspendisse faucibus.`;
 
+const USERS = [{
+  id: 'daniel',
+  picture: profile_picture_0,
+  firstName: 'Daniel',
+  lastName: 'Stern',
+}, {
+  id: 'keira',
+  picture: profile_picture_1,
+  firstName: 'Keira',
+  lastName: 'Knightley',
+}, {
+  id: 'jackie',
+  picture: profile_picture_2,
+  firstName: 'Jackie',
+  lastName: 'Chan',
+}];
+
 export {
   COLLEGES,
   MAJORS,
   PROMPTS,
   LOREM,
+  USERS,
 };

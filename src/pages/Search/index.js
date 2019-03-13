@@ -8,7 +8,6 @@ import './stylesheet.scss';
 
 class Search extends Page {
   renderPage() {
-    const isReview = this instanceof Review;
     const isSample = this instanceof Sample;
 
     return (

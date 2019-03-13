@@ -34,8 +34,8 @@ class EssayThumbnail extends Component {
             <div className="profile">
               <img className="picture" src={profile_picture_1} alt="profile"/>
               <img className="picture" src={profile_picture_2} alt="profile"/>
-              <span className="name">Chris</span>
-              <span className="name">Yukt</span>
+              <span className="name">Keira</span>
+              <span className="name">Jackie</span>
             </div>
           </div>
         </div>

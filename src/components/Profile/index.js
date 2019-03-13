@@ -1,0 +1,23 @@
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { classes } from 'common/utils';
+import './stylesheet.scss';
+
+class Profile extends Component {
+  render() {
+    const { className, user, onClick } = this.props;
+
+    let Component = onClick === undefined ?
+      props => <Link {...props} to={`/user/${user.id}`}/> :
+      props => <div {...props} onClick={onClick}/>;
+
+    return (
+      <Component className={classes('Profile', className)}>
+        <img className="picture" src={user.picture} alt="profile"/>
+        <span className="name">{user.firstName}</span>
+      </Component>
+    );
+  }
+}
+
+export default Profile;

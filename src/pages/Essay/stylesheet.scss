@@ -3,103 +3,28 @@
 $width-sidebar: 20rem;
 
 .Essay {
-  position: relative;
+  align-self: center;
+  max-width: $width-body-wide;
   flex: 1;
+  display: flex;
+  align-items: stretch;
+  padding: 2rem;
 
   .body {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: $width-sidebar;
+    width: $width-body-narrow;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 2rem;
-    overflow-y: auto;
-
-    .college {
-      width: $width-body-narrow;
-      font-weight: bold;
-      margin-bottom: .5rem;
-    }
-
-    .prompt {
-      width: $width-body-narrow;
-      font-size: $font-size-large;
-      font-weight: bold;
-      margin-bottom: 2rem;
-    }
-
-    .content {
-      flex-shrink: 0;
-      min-height: 50rem;
-      width: $width-body-narrow;
-      background-color: white;
-      padding: 4rem;
-      line-height: 2em;
-      box-shadow: rgba(black, .2) 0 0 4px;
-      border: none;
-      outline: none;
-      font-size: inherit;
-      color: inherit;
-      font-family: inherit;
-      white-space: pre-wrap;
-    }
-  }
-
-  .head {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: $width-sidebar;
-    right: 0;
-    background-color: white;
-    color: $color-font;
-    display: flex;
     align-items: stretch;
-    flex-direction: column;
-    box-shadow: rgba(black, .2) 0 0 4px;
-    width: 16rem;
-    padding: 2rem;
 
-    .profile {
+    .row {
       display: flex;
-      align-items: center;
-
-      .picture {
-        width: 2rem;
-        height: 2rem;
-        margin-right: .4rem;
-        border: 2px solid white;
-        border-radius: 2rem;
-        box-sizing: content-box;
-
-        & + .picture {
-          margin-left: -1.2rem;
-        }
-      }
-
-      .name {
-        & + .name {
-          &:before {
-            content: ' and ';
-            color: $color-font-dim;
-          }
-        }
-      }
-
-    }
-
-    .applicant,
-    .reviewer {
-      display: flex;
-      align-items: center;
-    }
-
-    .applicant {
+      align-items: flex-end;
       justify-content: space-between;
-      margin-bottom: 1rem;
+      margin-bottom: .5rem;
+
+      .college {
+        font-weight: bold;
+      }
 
       .deadline {
         font-weight: bold;
@@ -112,12 +37,160 @@ $width-sidebar: 20rem;
       }
     }
 
-    .reviewer {
-      justify-content: flex-start;
+    .prompt {
+      font-size: $font-size-large;
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
 
-      &:after {
-        content: ' reviewed.';
-        color: $color-font-dim;
+    .paper {
+      margin: 0 -2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      box-shadow: rgba(black, .2) 0 0 4px;
+      overflow: hidden;
+
+      .tabContainer {
+        display: flex;
+        overflow: hidden;
+
+        .tab {
+          position: relative;
+          flex: 1;
+          padding: 1rem;
+          background-color: $color-background-dim;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          &.selected {
+            z-index: 1;
+            background-color: white;
+            box-shadow: rgba(black, .2) 0 0 4px;
+          }
+
+          .profile {
+          }
+
+          .last {
+            display: flex;
+            align-items: center;
+            color: $color-font-dim;
+            font-size: $font-size-small;
+          }
+
+          .badge {
+            position: absolute;
+            margin: -$font-size-medium/4;
+            align-self: flex-start;
+            width: $font-size-medium;
+            height: $font-size-medium;
+            border-radius: $font-size-medium;
+            background-color: $color-highlight;
+            color: white;
+            font-weight: bold;
+            font-size: .6rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+
+        .tab + .tab {
+          &:after {
+            content: '';
+            position: absolute;
+            width: 1px;
+            height: 100%;
+            left: 0;
+            background-color: $color-background;
+          }
+        }
+
+        .tab.selected + .tab,
+        .tab + .tab.selected {
+          &:after {
+            content: none;
+          }
+        }
+      }
+
+      .content {
+        position: relative;
+        flex-shrink: 0;
+        min-height: 50rem;
+        background-color: white;
+        padding: 4rem;
+        line-height: 2em;
+        border: none;
+        outline: none;
+        font-size: inherit;
+        color: inherit;
+        font-family: inherit;
+        white-space: pre-wrap;
+        box-shadow: rgba(black, .2) 0 0 4px;
+
+        .delete {
+          color: $color-rejected;
+          text-decoration: line-through;
+          font-weight: bold;
+        }
+
+        .add {
+          color: $color-accepted;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .sidenote {
+    width: 20rem;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding-top: 12rem;
+
+    .note {
+      background-color: white;
+      box-shadow: rgba(black, .2) 0 0 4px;
+      border-radius: 5px;
+      margin-bottom: 12rem;
+
+      .note-head {
+        padding: .5rem 1rem;
+        background-color: $color-background-dim;
+        font-size: $font-size-small;
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+
+        .actions {
+          display: flex;
+          align-items: stretch;
+          margin-right: -.5rem;
+
+          .action {
+            margin: -.5rem 0;
+            padding: .5rem;
+            cursor: pointer;
+
+            &.accept {
+              color: $color-accepted;
+            }
+
+            &.reject {
+              color: $color-rejected;
+            }
+          }
+        }
+      }
+
+      .note-body {
+        padding: 1rem;
       }
     }
   }
