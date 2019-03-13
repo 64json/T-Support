@@ -30,10 +30,10 @@ class Essay extends Page {
           <div className="paper">
             <div className="tabContainer">
               {
-                USERS.map(user => (
+                USERS.map((user, i) => (
                   <Link className={classes('tab', editorId === user.id && 'selected')} key={user.id}
                         to={`/essay/${essayId}/${user.id}`}>
-                    <Profile className="profile" user={user} onClick={null}/>
+                    <Profile className="profile" user={user} title={i === 0 ? 'Applicant' : 'Reviewer'} onClick={null}/>
                     {
                       user.id !== editorId &&
                       <span className="last">3 min</span>

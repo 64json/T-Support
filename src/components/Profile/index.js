@@ -5,7 +5,7 @@ import './stylesheet.scss';
 
 class Profile extends Component {
   render() {
-    const { className, user, onClick } = this.props;
+    const { className, user, title, onClick } = this.props;
 
     let Component = onClick === undefined ?
       props => <Link {...props} to={`/user/${user.id}`}/> :
@@ -14,7 +14,13 @@ class Profile extends Component {
     return (
       <Component className={classes('Profile', className)}>
         <img className="picture" src={user.picture} alt="profile"/>
-        <span className="name">{user.firstName}</span>
+        <div className="info">
+          <span className="name">{user.firstName}</span>
+          {
+            title &&
+            <span className="title">{title}</span>
+          }
+        </div>
       </Component>
     );
   }

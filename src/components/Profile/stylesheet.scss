@@ -15,6 +15,16 @@
     margin-right: .5rem;
   }
 
-  .name {
+  .info {
+    display: flex;
+    flex-direction: column;
+
+    .name {
+    }
+
+    .title {
+      font-size: 0.8rem;
+      color: $color-font-dim;
+    }
   }
 }
