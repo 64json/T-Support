@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dfe655d8-46cf-4aee-baae-0506ab8518ce" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/components/App/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home/stylesheet.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/stylesheet.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Essay/stylesheet.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Essay/stylesheet.scss" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,11 +15,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/Home/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="274">
               <caret line="26" column="85" selection-start-line="26" selection-start-column="85" selection-end-line="26" selection-end-column="85" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/pages/Essay/stylesheet.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="90" column="42" selection-start-line="90" selection-start-column="42" selection-end-line="90" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -46,7 +56,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Georgia</find>
       <find>profile_pi</find>
       <find>profile_pictu</find>
       <find>profile</find>
@@ -76,6 +85,7 @@
       <find>props =&gt;</find>
       <find>/essay/loremipsum</find>
       <find>&quot;title&quot;</find>
+      <find>badge</find>
     </findStrings>
     <replaceStrings>
       <replace>color-highlight-dim</replace>
@@ -136,13 +146,13 @@
         <option value="$PROJECT_DIR$/src/common/constants.scss" />
         <option value="$PROJECT_DIR$/src/components/Profile/stylesheet.scss" />
         <option value="$PROJECT_DIR$/src/pages/Essay/index.js" />
-        <option value="$PROJECT_DIR$/src/pages/Essay/stylesheet.scss" />
         <option value="$PROJECT_DIR$/src/components/Profile/index.js" />
         <option value="$PROJECT_DIR$/src/components/Button/index.js" />
         <option value="$PROJECT_DIR$/src/pages/Upload/index.js" />
         <option value="$PROJECT_DIR$/src/components/App/index.js" />
         <option value="$PROJECT_DIR$/src/pages/Home/stylesheet.scss" />
         <option value="$PROJECT_DIR$/src/pages/Home/index.js" />
+        <option value="$PROJECT_DIR$/src/pages/Essay/stylesheet.scss" />
       </list>
     </option>
   </component>
@@ -343,12 +353,12 @@
       <workItem from="1552195796267" duration="487000" />
       <workItem from="1552196338889" duration="29272000" />
       <workItem from="1552274472309" duration="24000" />
-      <workItem from="1552437432416" duration="9128000" />
+      <workItem from="1552437432416" duration="9268000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38911000" />
+    <option name="totallyTimeSpent" value="39051000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -689,13 +699,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/Essay/stylesheet.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="148" column="23" selection-start-line="148" selection-start-column="23" selection-end-line="148" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Profile/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -771,6 +774,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="274">
           <caret line="26" column="85" selection-start-line="26" selection-start-column="85" selection-end-line="26" selection-end-column="85" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/Essay/stylesheet.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="90" column="42" selection-start-line="90" selection-start-column="42" selection-end-line="90" selection-end-column="42" />
         </state>
       </provider>
     </entry>
