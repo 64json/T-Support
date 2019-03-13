@@ -7,6 +7,7 @@
 
   .cover {
     align-self: stretch;
+    margin-top: -$height-navigation;
     height: 36rem;
     background-repeat: no-repeat;
     background-size: cover;
@@ -53,7 +54,9 @@
     align-items: center;
 
     .title {
-
+      font-size: $font-size-largest;
+      font-weight: bold;
+      margin: 2rem 0 1rem;
     }
 
     .essays {

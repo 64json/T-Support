@@ -38,9 +38,10 @@ class App extends Component {
   }
 
   updateSticky(nextProps = this.props) {
+    const { user } = this.props.env;
     const { pathname } = nextProps.location;
     const { scrollTop } = document.documentElement;
-    const sticky = pathname !== '/' || scrollTop > 64;
+    const sticky = !!user || pathname !== '/' || scrollTop > 64;
     this.setState({ sticky });
   }
 
