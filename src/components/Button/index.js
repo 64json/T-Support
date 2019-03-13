@@ -2,19 +2,24 @@ import React, { Component } from 'react';
 import { classes } from '../../common/utils';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './stylesheet.scss';
+import { Link } from 'react-router-dom';
 
 class Button extends Component {
   render() {
-    const { className, icon, children } = this.props;
+    const { className, icon, children, to, onClick } = this.props;
+
+    const Component = to ?
+      props => <Link {...props} to={to}/> :
+      props => <button {...props} onClick={onClick}/>;
 
     return (
-      <button className={classes('Button', className)}>
+      <Component className={classes('Button', className)}>
         {
           icon &&
           <FontAwesomeIcon className="icon" icon={icon}/>
         }
         <span className="text">{children}</span>
-      </button>
+      </Component>
     );
   }
 }

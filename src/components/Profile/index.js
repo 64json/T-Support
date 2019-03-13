@@ -7,7 +7,7 @@ class Profile extends Component {
   render() {
     const { className, user, title, onClick } = this.props;
 
-    let Component = onClick === undefined ?
+    const Component = onClick === undefined ?
       props => <Link {...props} to={`/user/${user.id}`}/> :
       props => <div {...props} onClick={onClick}/>;
 

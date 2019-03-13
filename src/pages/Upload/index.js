@@ -85,7 +85,7 @@ class Upload extends Page {
               <textarea className="textarea" placeholder="Paste your essay here."/>
             </Field>
           </div>
-          <Button className="upload">Upload</Button>
+          <Button className="upload" to="/essay/loremipsum">Upload</Button>
         </form>
       </div>
     );
