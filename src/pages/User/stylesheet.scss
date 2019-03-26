@@ -1,0 +1,176 @@
+@import "~common/constants";
+
+.User {
+  align-self: center;
+  max-width: $width-body-medium;
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+
+  .sectionProfile {
+    width: 16rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    .card {
+      width: 16rem;
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+      border: 1px solid $color-divider;
+      border-radius: 2px;
+      overflow: hidden;
+
+      .picture {
+        align-self: center;
+        width: 16rem;
+        height: 16rem;
+      }
+
+      .info {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+
+        .name {
+          display: flex;
+          font-weight: bold;
+          font-size: $font-size-large;
+        }
+
+        .title {
+          color: $color-font-dim;
+        }
+      }
+    }
+
+    .divider {
+      height: 1px;
+      background-color: $color-divider;
+      margin: 1rem 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .itemContainer {
+      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+
+      .field {
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        margin-bottom: 1.5rem;
+      }
+
+      .linkedIn {
+        background-color: $color-linkedin;
+      }
+
+      .schools {
+        margin-top: .5rem;
+
+        .school-add,
+        .school-remove {
+          margin-bottom: .5rem;
+          display: flex;
+          align-items: center;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          .icon {
+            margin-right: .2rem;
+          }
+
+          .text {
+            font-size: $font-size-medium;
+          }
+        }
+
+        .school-remove {
+          .icon {
+            color: $color-rejected;
+          }
+        }
+
+        .school-add {
+          color: $color-accepted;
+
+          .text {
+            font-weight: bold;
+          }
+        }
+      }
+
+      .item {
+        margin-bottom: .5rem;
+        display: flex;
+        align-items: center;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        .icon {
+          margin-right: .2rem;
+        }
+
+        .text {
+          flex: 1;
+          font-size: $font-size-small;
+        }
+      }
+    }
+
+    .buttons {
+      margin-top: 1rem;
+      display: flex;
+
+      .save {
+        flex: 1;
+        margin-right: .51rem;
+        margin-bottom: 0;
+      }
+
+      .cancel {
+        background-color: $color-rejected;
+      }
+    }
+
+    .edit {
+    }
+  }
+
+  .sectionActivity {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .title {
+      font-size: $font-size-large;
+      font-weight: bold;
+      margin: 3rem 1rem 1rem;
+    }
+
+    .essays {
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+
+      .essayThumbnail {
+        width: 18rem;
+        height: 18rem;
+        margin: 1rem;
+      }
+    }
+  }
+}

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { EssayThumbnail, Field, Page, Row } from 'components';
 import { COLLEGES, MAJORS, PROMPTS } from 'common/dummies';
-import { Review, Sample } from 'pages';
+import { Sample } from 'pages';
 import './stylesheet.scss';
 
 class Search extends Page {

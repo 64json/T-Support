@@ -10,13 +10,18 @@
   }
 
   .header {
-    font-size: $font-size-small;
     margin-bottom: .2rem;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+
+    .icon {
+      margin-right: .2rem;
+    }
 
     .label {
+      flex: 1;
       font-weight: bold;
+      font-size: $font-size-small;
     }
 
     .optional {

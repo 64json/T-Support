@@ -38,7 +38,7 @@ class Home extends Page {
           </span>
         </div>
         <section className="section">
-          <span className="title">Recently Accepted Essays</span>
+          <span className="title">Recently Accepted</span>
           <div className="essays">
             {
               new Array(8).fill(0).map((_, i) => (

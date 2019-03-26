@@ -6,14 +6,14 @@ import { Link } from 'react-router-dom';
 
 class Button extends Component {
   render() {
-    const { className, icon, children, to, onClick } = this.props;
+    const { className, primary, icon, children, to, onClick } = this.props;
 
     const Component = to ?
       props => <Link {...props} to={to}/> :
       props => <button {...props} onClick={onClick}/>;
 
     return (
-      <Component className={classes('Button', className)}>
+      <Component className={classes('Button', primary && 'primary', className)}>
         {
           icon &&
           <FontAwesomeIcon className="icon" icon={icon}/>
