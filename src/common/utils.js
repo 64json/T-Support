@@ -36,8 +36,11 @@ const similarity = (keyword, sentence) => {
   }, 0);
 };
 
+const delay = callback => window.setTimeout(callback, Math.random() * 400 + 200);
+
 export {
   classes,
   levenshteinDistance,
   similarity,
+  delay,
 };

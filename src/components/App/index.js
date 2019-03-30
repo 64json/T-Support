@@ -6,7 +6,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { actions } from 'reducers';
 import logoWhiteSquare from 'statics/logo-white-square.png';
 import logoMagentaSquare from 'statics/logo-magenta-square.png';
-import { classes, similarity } from 'common/utils';
+import { classes, delay, similarity } from 'common/utils';
 import { QUESTIONS } from 'common/dummies';
 import { Rate } from 'components';
 import 'font-awesome/css/font-awesome.min.css';
@@ -22,7 +22,7 @@ class App extends Component {
       questionId: '',
       representativeId: '',
       password: '',
-      login: 'b',
+      login: '',
     };
 
     this.state = this.initialState;
@@ -41,12 +41,16 @@ class App extends Component {
 
   handleSearch = e => {
     e.preventDefault();
-    const search = this.state.keyword;
-    this.setState({ search, questionId: '' });
+    delay(() => {
+      const search = this.state.keyword;
+      this.setState({ search, questionId: '' });
+    });
   };
 
   handleClickQuestionCard = questionId => {
-    this.setState({ questionId });
+    delay(() => {
+      this.setState({ questionId });
+    });
   };
 
   handleChangeRepresentativeId = e => {
@@ -61,8 +65,10 @@ class App extends Component {
 
   handleLogin = e => {
     e.preventDefault();
-    const login = this.state.representativeId;
-    this.setState({ login });
+    delay(() => {
+      const login = this.state.representativeId;
+      this.setState({ login });
+    });
   };
 
   render() {
