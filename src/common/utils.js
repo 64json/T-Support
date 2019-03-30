@@ -36,8 +36,11 @@ const similarity = (keyword, sentence) => {
   }, 0);
 };
 
+const capitalize = string => string.charAt(0).toUpperCase() + string.slice(1);
+
 export {
   classes,
   levenshteinDistance,
   similarity,
+  capitalize,
 };

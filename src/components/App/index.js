@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { actions } from 'reducers';
 import logoWhiteSquare from 'statics/logo-white-square.png';
 import logoMagentaSquare from 'statics/logo-magenta-square.png';
-import { classes, similarity } from 'common/utils';
+import { capitalize, classes, similarity } from 'common/utils';
 import { QUESTIONS } from 'common/dummies';
 import { Rate } from 'components';
 import 'font-awesome/css/font-awesome.min.css';
 import './stylesheet.scss';
-import axios from 'axios';
 
 class App extends Component {
   constructor(props) {
@@ -58,7 +58,7 @@ class App extends Component {
                   ['Services > Network & Coverage', ['network', 'coverage', 'roaming']],
                 ].find(([category, keywords]) => keywords.some(keyword => primaryQuestion.includes(keyword))) ||
                 ['Services > Account & Services'])[0],
-              text: primaryQuestion.replace(/^(hello|hi|hey|good|great|sarah|fine|morning|afternoon|evening|night|doing|ok|i|m|am|how|are|you|\W)+[?!. ]+/i, ''),
+              text: capitalize(primaryQuestion.replace(/^(hello|hi|hey|good|great|sarah|fine|morning|afternoon|evening|night|doing|ok|i|m|am|how|are|you|\W)+[?!. ]+/i, '')),
               answers: [{
                 id: 'a-demo',
                 text: primaryAnswer,
