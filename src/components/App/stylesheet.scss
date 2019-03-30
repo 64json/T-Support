@@ -3,102 +3,341 @@
 .App {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  background-color: $color-background;
-  color: $color-font;
+  align-items: center;
+  font-size: $font-size-medium;
+  color: $color-secondary;
+  min-height: 100vh;
+  box-sizing: border-box;
 
-  .navigation {
+  .nav {
     position: fixed;
-    z-index: 999;
+    z-index: 1;
     top: 0;
+    bottom: 0;
     left: 0;
     right: 0;
-    height: $height-navigation;
     display: flex;
-    align-items: stretch;
+    align-items: center;
     justify-content: center;
-    color: white;
-    text-shadow: rgba(black, .5) 0 0 4px;
-    transition: all .2s;
+    flex-direction: column;
+    background-color: $color-primary;
 
-    &.sticky {
-      background-color: white;
-      color: $color-font;
-      text-shadow: none;
-      box-shadow: rgba(black, .5) 0 0 4px;
+    &.top {
+      align-self: stretch;
+      position: static;
+      height: 5rem;
+      flex-direction: row;
 
-      .menu {
-        .item {
-          &:after {
-            background-color: $color-font;
-          }
+      .logo {
+        margin-bottom: 0;
+        margin-right: 4rem;
+
+        .image {
+          height: 2rem;
+          margin-right: .25rem;
         }
+
+        .text {
+          font-size: 1.5rem;
+        }
+      }
+
+      .search {
+        font-size: $font-size-large;
+        padding: 1rem 1.5rem;
+        text-align: left;
+        margin-bottom: 0;
       }
     }
 
     .logo {
       display: flex;
       align-items: center;
-      margin-right: 4rem;
-      font-size: $font-size-large;
+      margin-bottom: 2rem;
+      cursor: pointer;
+      color: white;
 
-      .icon {
-        margin-right: .2rem;
+      .image {
+        height: 4rem;
+        margin-right: .5rem;
       }
 
-      .title {
+      .text {
+        font-size: 3rem;
+        font-weight: bold;
       }
     }
 
-    .menu {
-      list-style: none;
-      display: flex;
-      align-items: stretch;
-      margin: 0 4rem 0 0;
+    .search {
+      font-size: $font-size-largest;
+      padding: 2rem;
+      background-color: rgba(black, .2);
+      border: none;
+      width: $width-body-narrow;
+      color: white;
+      font-family: inherit;
+      outline: none;
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 4rem;
 
-      .item {
-        position: relative;
-        padding: 0 1rem;
-        display: flex;
-        align-items: center;
+      &::placeholder {
+        color: rgba(white, .5);
+      }
+    }
+  }
+
+  .question-selected {
+    align-self: stretch;
+    background-color: $color-primary;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .wrapper {
+      width: $width-body-medium;
+      display: flex;
+      flex-direction: column;
+      padding: 2rem 2rem 4rem;
+
+      .category {
+        margin-bottom: .5rem;
+      }
+
+      .question {
+        font-size: $font-size-largest;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .questions {
+    width: $width-body-wide;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem;
+
+    .question-card {
+      position: relative;
+      border: 2px solid $color-primary;
+      margin: 1rem;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      width: 14rem;
+      height: 14rem;
+      overflow: hidden;
+      cursor: pointer;
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 12rem;
+        background-image: linear-gradient(to top, white, rgba(white, 0));
+      }
+
+      &:hover {
+        background-color: $color-primary;
+        color: white;
 
         &:after {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 0;
-          height: .2rem;
-          background-color: white;
-          transition: width .2s;
+          background-image: linear-gradient(to top, $color-primary, rgba($color-primary, 0));
         }
 
-        &:hover,
-        &.selected {
-          &:after {
-            width: 100%;
+        .divider {
+          background-color: white;
+        }
+
+        .answer {
+          color: $color-quaternary;
+        }
+
+        .divider-dim {
+          background-color: $color-quaternary;
+        }
+      }
+
+      > * {
+        flex-shrink: 0;
+      }
+
+      .category {
+        margin-bottom: .5rem;
+        font-size: $font-size-small;
+      }
+
+      .question {
+        font-size: $font-size-large;
+        font-weight: bold;
+      }
+
+      .divider {
+        height: 2px;
+        align-self: stretch;
+        background-color: $color-primary;
+        margin: 1rem 0;
+      }
+
+      .answer {
+        font-weight: bold;
+        color: $color-tertiary;
+      }
+
+      .divider-dim {
+        height: 2px;
+        align-self: stretch;
+        background-color: $color-tertiary;
+        margin: 1rem 0;
+
+        &:last-child {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .answers {
+    align-self: center;
+    width: $width-body-medium;
+    color: $color-secondary;
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 2rem;
+
+    .answer {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem 0;
+
+      .frequency {
+        color: $color-tertiary;
+        margin-bottom: .5rem;
+      }
+
+      .text {
+        font-weight: bold;
+        color: $color-secondary;
+        font-size: $font-size-large;
+        margin-bottom: 1rem;
+      }
+
+      .ratingContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .rate {
+          .star {
+            font-size: $font-size-large;
+            color: $color-quaternary;
+
+            &.selected {
+              color: $color-star;
+            }
+          }
+        }
+
+        .ratings {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+
+          .rating {
+            color: $color-tertiary;
+
+            .star {
+              color: $color-star;
+            }
+
+            b {
+              color: $color-secondary;
+              font-weight: normal;
+            }
           }
         }
       }
     }
 
-    .login {
-      display: flex;
-      align-items: center;
+    .divider-dim {
+      height: 2px;
+      align-self: stretch;
+      background-color: $color-quaternary;
+      margin: 1rem 0;
 
-      .icon {
-        margin-right: .5rem;
-      }
-
-      .label {
+      &:last-child {
+        display: none;
       }
     }
   }
 
-  .page {
-    min-height: 100vh;
+  .login {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
-    align-items: stretch;
+    background-color: $color-primary;
+
+    .logo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2rem;
+      cursor: pointer;
+      color: white;
+
+      .image {
+        height: 4rem;
+        margin-right: .5rem;
+      }
+
+      .text {
+        font-size: 3rem;
+        font-weight: bold;
+      }
+    }
+
+    .input {
+      font-size: $font-size-large;
+      padding: 1rem 1.5rem;
+      background-color: rgba(black, .2);
+      border: none;
+      width: 16rem;
+      color: white;
+      font-family: inherit;
+      outline: none;
+      font-weight: bold;
+      margin-bottom: 1rem;
+
+      &::placeholder {
+        color: rgba(white, .5);
+      }
+    }
+
+    .button {
+      font-size: $font-size-large;
+      padding: 1rem 1.5rem;
+      background-color: white;
+      border: none;
+      width: 16rem;
+      font-family: inherit;
+      outline: none;
+      font-weight: bold;
+      margin-top: 1rem;
+      margin-bottom: 4rem;
+      color: $color-primary;
+      box-sizing: content-box;
+      cursor: pointer;
+    }
   }
 }

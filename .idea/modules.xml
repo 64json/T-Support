@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/best-for-last.iml" filepath="$PROJECT_DIR$/.idea/best-for-last.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/t-support.iml" filepath="$PROJECT_DIR$/.idea/t-support.iml" />
     </modules>
   </component>
 </project>

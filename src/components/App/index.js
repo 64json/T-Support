@@ -1,97 +1,155 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link, Route, Switch, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLock, faPenNib } from '@fortawesome/free-solid-svg-icons';
-import { Essay, Home, Join, Login, NotFound, Review, Sample, Upload, User } from 'pages';
-import { Profile } from 'components';
-import { classes } from 'common/utils';
 import { actions } from 'reducers';
 import './stylesheet.scss';
+import logoWhiteSquare from 'statics/logo-white-square.png';
+import { classes } from 'common/utils';
+import { QUESTIONS } from 'common/dummies';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      sticky: false,
+    this.initialState = {
+      keyword: '',
+      search: '',
+      questionId: undefined,
+      representativeId: '',
+      password: '',
+      login: '',
     };
+
+    this.state = this.initialState;
   }
 
-  componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll);
-    this.updateSticky();
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
-  }
-
-  handleScroll = () => {
-    this.updateSticky();
+  handleChangeKeyword = e => {
+    const keyword = e.target.value;
+    this.setState({ keyword });
   };
 
-  componentWillReceiveProps(nextProps, nextContext) {
-    if (this.props.location.pathname !== nextProps.location.pathname) {
-      this.updateSticky(nextProps);
-    }
-  }
+  handleReset = () => {
+    this.setState(this.initialState);
+  };
 
-  updateSticky(nextProps = this.props) {
-    const { user } = this.props.env;
-    const { pathname } = nextProps.location;
-    const { scrollTop } = document.documentElement;
-    const sticky = !!user || pathname !== '/' || scrollTop > 64;
-    this.setState({ sticky });
-  }
+  handleSearch = e => {
+    e.preventDefault();
+    const search = this.state.keyword;
+    this.setState({ search });
+  };
+
+  handleClickQuestionCard = questionId => {
+    this.setState({ questionId });
+  };
+
+  handleChangeRepresentativeId = e => {
+    const representativeId = e.target.value;
+    this.setState({ representativeId });
+  };
+
+  handleChangePassword = e => {
+    const password = e.target.value;
+    this.setState({ password });
+  };
+
+  handleLogin = e => {
+    e.preventDefault();
+    const login = this.state.representativeId;
+    this.setState({ login });
+  };
 
   render() {
-    const { user } = this.props.env;
-    const { pathname } = this.props.location;
-    const { sticky } = this.state;
+    const { keyword, search, questionId, representativeId, password, login } = this.state;
+
+    const question = QUESTIONS.find(q => q.id === questionId);
 
     return (
       <div className="App">
-        <header className={classes('navigation', sticky && 'sticky')}>
-          <Link className="logo" to="/">
-            <FontAwesomeIcon className="icon" icon={faPenNib}/>
-            <span className="title">BestForLast</span>
-          </Link>
-          <div className="menu">
+        <form className={classes('nav', search && 'top')} onSubmit={this.handleSearch}>
+          <div className="logo" onClick={this.handleReset}>
+            <img className="image" src={logoWhiteSquare}/>
+            <span className="text">
+            - Support
+          </span>
+          </div>
+          <input className="search" type="text" value={keyword} onChange={this.handleChangeKeyword}
+                 placeholder="Search a topic"/>
+        </form>
+        {
+          question ?
+            <div className="question-selected">
+              <div className="wrapper">
+                <span className="category">{question.category}</span>
+                <span className="question">{question.text}</span>
+              </div>
+            </div> :
+            <div className="questions">
+              {
+                QUESTIONS.map(({ id, category, text, answers }) => (
+                  <div className="question-card" key={id} onClick={() => this.handleClickQuestionCard(id)}>
+                    <span className="category">{category}</span>
+                    <span className="question">{text}</span>
+                    <div className="divider"/>
+                    {
+                      answers.map(({ id, text }) => [
+                        <span className="answer" key={id}>{text}</span>,
+                        <div className="divider-dim" key={`${id}-divider`}/>,
+                      ])
+                    }
+                  </div>
+                ))
+              }
+            </div>
+        }
+        {
+          question &&
+          <div className="answers">
             {
-              [
-                ['Upload an Essay', '/upload'],
-                ['Review an Essay', '/review'],
-                ['Sample Essays', '/sample'],
-                ['College Forum', '/forum'],
-              ].map(([menu, to]) => (
-                <Link className={classes('item', pathname.startsWith(to) && 'selected')} to={to}>{menu}</Link>
-              ))
+              question.answers.map(({ id, text }) => [
+                <div className="answer" key={id}>
+                  <span className="frequency">5 representatives answered like</span>
+                  <span className="text">{text}</span>
+                  <div className="ratingContainer">
+                    <div className="rate">
+                      {
+                        new Array(5).fill(0).map((_, i) => (
+                          <FontAwesomeIcon icon={faStar} className={classes('star', i < 3 && 'selected')} key={i}/>
+                        ))
+                      }
+                    </div>
+                    <div className="ratings">
+                      <span className="rating">
+                        <b>Representatives</b> rated <FontAwesomeIcon className="star" icon={faStar}/><b>4.7</b>
+                      </span>
+                      <span className="rating">
+                        <b>Customers</b> rated <FontAwesomeIcon className="star" icon={faStar}/><b>4.3</b>
+                      </span>
+                    </div>
+                  </div>
+                </div>,
+                <div className="divider-dim" key={`${id}-divider`}/>,
+              ])
             }
           </div>
-          {
-            user ?
-              <Profile user={user}/> :
-              <Link className="login" to="/login">
-                <FontAwesomeIcon className="icon" icon={faLock}/>
-                <span className="label">Login</span>
-              </Link>
-          }
-        </header>
-        <div className="page">
-          <Switch>
-            <Route exact path="/" component={Home}/>
-            <Route exact path="/login" component={Login}/>
-            <Route exact path="/join" component={Join}/>
-            <Route exact path="/upload" component={Upload}/>
-            <Route exact path="/review" component={Review}/>
-            <Route exact path="/sample" component={Sample}/>
-            <Route exact path="/essay/:essayId" component={Essay}/>
-            <Route exact path="/essay/:essayId/:editorId" component={Essay}/>
-            <Route exact path="/user/:userId" component={User}/>
-            <Route component={NotFound}/>
-          </Switch>
-        </div>
+        }
+        {
+          !login &&
+          <form className="login" onSubmit={this.handleLogin}>
+            <div className="logo" onClick={this.handleReset}>
+              <img className="image" src={logoWhiteSquare}/>
+              <span className="text">
+              - Support
+            </span>
+            </div>
+            <input className="input" type="text" value={representativeId} onChange={this.handleChangeRepresentativeId}
+                   placeholder="Representative ID"/>
+            <input className="input" type="password" value={password} onChange={this.handleChangePassword}
+                   placeholder="Password"/>
+            <button className="button">Login</button>
+          </form>
+        }
       </div>
     );
   }
