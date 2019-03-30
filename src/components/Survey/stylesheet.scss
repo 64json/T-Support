@@ -42,7 +42,7 @@
   .balloon {
     padding: .5rem 1rem;
     border-radius: 1rem;
-    margin: 0 2rem;
+    margin: 0 2rem .5rem;
   }
 
   .question {
@@ -50,7 +50,6 @@
     background-color: $color-primary;
     color: white;
     margin-left: 4rem;
-    margin-bottom: .5rem;
   }
 
   .answer {
