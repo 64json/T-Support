@@ -6,7 +6,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { actions } from 'reducers';
 import logoWhiteSquare from 'statics/logo-white-square.png';
 import logoMagentaSquare from 'statics/logo-magenta-square.png';
-import { classes, delay, similarity } from 'common/utils';
+import { classes, similarity } from 'common/utils';
 import { QUESTIONS } from 'common/dummies';
 import { Rate } from 'components';
 import 'font-awesome/css/font-awesome.min.css';
@@ -16,17 +16,24 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.initialState = {
+    this.state = {
       keyword: '',
       search: '',
       questionId: '',
       representativeId: '',
       password: '',
       login: '',
+      loading: false,
     };
-
-    this.state = this.initialState;
   }
+
+  delay = callback => {
+    this.setState({ loading: true });
+    window.setTimeout(() => {
+      this.setState({ loading: false });
+      callback();
+    }, Math.random() * 400 + 200);
+  };
 
   handleChangeKeyword = e => {
     const keyword = e.target.value;
@@ -36,19 +43,23 @@ class App extends Component {
   };
 
   handleReset = () => {
-    this.setState(this.initialState);
+    this.setState({
+      keyword: '',
+      search: '',
+      questionId: '',
+    });
   };
 
   handleSearch = e => {
     e.preventDefault();
-    delay(() => {
+    this.delay(() => {
       const search = this.state.keyword;
       this.setState({ search, questionId: '' });
     });
   };
 
   handleClickQuestionCard = questionId => {
-    delay(() => {
+    this.delay(() => {
       this.setState({ questionId });
     });
   };
@@ -65,14 +76,14 @@ class App extends Component {
 
   handleLogin = e => {
     e.preventDefault();
-    delay(() => {
+    this.delay(() => {
       const login = this.state.representativeId;
       this.setState({ login });
     });
   };
 
   render() {
-    const { keyword, search, questionId, representativeId, password, login } = this.state;
+    const { keyword, search, questionId, representativeId, password, login, loading } = this.state;
 
     const question = QUESTIONS.find(q => q.id === questionId);
 
@@ -158,6 +169,7 @@ class App extends Component {
             <button className="button">Login</button>
           </form>
         }
+        <div className={classes('loading', loading && 'active', login ? 'white' : 'magenta')}/>
       </div>
     );
   }
