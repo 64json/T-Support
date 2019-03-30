@@ -116,9 +116,9 @@ class App extends Component {
           question &&
           <div className="answers">
             {
-              question.answers.map(({ id, text }) => [
+              question.answers.map(({ id, text, count, representativeRating, customerRating }) => [
                 <div className="answer" key={id}>
-                  <span className="frequency">5 representatives answered like</span>
+                  <span className="frequency">{count} representatives answered like</span>
                   <span className="text">{text}</span>
                   <div className="ratingContainer">
                     <div className="rate">
@@ -127,10 +127,12 @@ class App extends Component {
                     </div>
                     <div className="ratings">
                       <span className="rating">
-                        <b>Representatives</b> rated <FontAwesomeIcon className="star" icon={faStar}/><b>4.7</b>
+                        <b>Customers</b> rated <FontAwesomeIcon className="star"
+                                                                icon={faStar}/><b>{customerRating}</b>
                       </span>
                       <span className="rating">
-                        <b>Customers</b> rated <FontAwesomeIcon className="star" icon={faStar}/><b>4.3</b>
+                        <b>Representatives</b> rated <FontAwesomeIcon className="star"
+                                                                      icon={faStar}/><b>{representativeRating}</b>
                       </span>
                     </div>
                   </div>
