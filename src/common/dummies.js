@@ -228,24 +228,42 @@ const QUESTIONS = [{
   }],
 },
 {
-  id: 'q-19',
-  category: 'Services > Networks & Coverage',
-  text: "",
+  id: 'q-21',
+  category: 'Devices > Apple Products',
+  text: "My ex gave me his iphone 7 when we were still together now I want to sell it and it’s telling me it’s locked how do I SIM/ carrier unlock the phon? we don’t talk anymore so I don’t know his billing information or anything else needed like that to unlock the phone. And I can’t contact him because I’m blocked so I’m really stuck",
   answers: [{
     id: 'a-0',
-    text: "",
+    text: "You're ex is going to have to unlock it.",
   }, {
     id: 'a-1',
-    text: "",
+    text: "You can try a third party unlocking service for a fee.  T-Mobile will not be able to unlock the device for you. ",
   }, {
     id: 'a-2',
-    text: "",
+    text: "It's an iPhone so you won't be able to unlock it but jail break it then after an os update it will lock again.",
+  }],
+},
+{
+  id: 'q-22',
+  category: 'Devices > Apple Products',
+  text: "Given a choice between these 3 phones, trying to determine if the A12 processor is worth $150 over the iPhone 8?  This seems to be the real difference between the phones.",
+  answers: [{
+    id: 'a-0',
+    text: "Band 71 is not available on the 8, but is on the newer iPhones If you're spending $1000 (tax and insurance and case) band 71 capability will last longer.",
   }, {
-    id: 'a-3',
-    text: "",
+    id: 'a-1',
+    text: "Xr doesn't have the 3D touch, but have the faceID instead of touchID. Xr does have mostly borderless screen. Pretty sure the battery life of the Xr is longer. A12 has more powerfull capabilities. As said, there is an additional band, and considering how the software updates are going, you will want to get the newest phone, if you plan to keep it for a long time. Then, compare every single feature, and make your choice. No one can do it for you !",
+  }],
+},
+{
+  id: 'q-23',
+  category: 'Devices > Android Products',
+  text: "How long is it going to take for android pie update for note 8.",
+  answers: [{
+    id: 'a-0',
+    text: "Valid concerns! Unfortunately we don't develop the software updates, rather that goes through the device manufacturers making us adherent to their development time-lines. Our primary role during their development process is a quality assurance route,and from there delays can occur if issues are found with the update the manufacturer has released. Because the manufacturers are responsible for the rollout, their focus on the updates is often on their newest devices, and Pie for the Note 9 is only starting. As mentioned above, older devices are often a few months to follow if receiving an update. That said, the forum is all us. If you have any feedback or issues with posting, lay them on us because we absolutely would love to ease the process if having issues.",
   }, {
-    id: 'a-3',
-    text: "",
+    id: 'a-1',
+    text: "For a number of reasons, the timeline won't be made public. Best advice I can say is watch the update page on TMobile to see when it is announced. If Samsung does update that device and that they just are now releasing it for the note 9, it is probably not going to be for 4 or more months.",
   }],
 }];
 
