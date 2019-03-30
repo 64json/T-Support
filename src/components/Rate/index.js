@@ -23,8 +23,11 @@ class Rate extends Component {
   };
 
   handleClickRate = () => {
+    const { onChange } = this.props;
     const { hoveredStar, selectedStar } = this.state;
-    this.setState({ selectedStar: hoveredStar === selectedStar ? 0 : hoveredStar });
+    const star = hoveredStar === selectedStar ? 0 : hoveredStar;
+    if (onChange) onChange(star);
+    this.setState({ selectedStar: star });
   };
 
   render() {

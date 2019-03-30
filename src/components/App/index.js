@@ -11,6 +11,7 @@ import { QUESTIONS } from 'common/dummies';
 import { Rate } from 'components';
 import 'font-awesome/css/font-awesome.min.css';
 import './stylesheet.scss';
+import axios from 'axios';
 
 class App extends Component {
   constructor(props) {
@@ -24,9 +25,51 @@ class App extends Component {
       password: '',
       login: '',
       loading: false,
+      officialSearch: null,
+      communitySearch: null,
     };
 
     this.searchRef = React.createRef();
+  }
+
+  componentDidMount() {
+    axios.get('https://t-support-server.herokuapp.com/transcripts')
+      .then(response => {
+        const { firstSpeaker, conversations } = response.data.transcripts;
+        axios.get('https://t-support-server.herokuapp.com/rates')
+          .then(response => {
+            const { rates } = response.data;
+            let i = firstSpeaker;
+            let primaryAnswer = '';
+            while (i < conversations.length) {
+              const answer = conversations[i];
+              if (primaryAnswer.length < answer.length) {
+                primaryAnswer = answer;
+              }
+              i += 2;
+            }
+            const primaryQuestion = conversations[conversations.indexOf(primaryAnswer) - 1];
+            QUESTIONS.push({
+              id: 'q-demo',
+              category: ([
+                  ['Devices > Android Products', ['android', 'google']],
+                  ['Devices > Apple Products', ['iphone', 'apple']],
+                  ['Devices > Other Products', ['phone', 'mobile', 'model']],
+                  ['Services > Network & Coverage', ['network', 'coverage', 'roaming']],
+                ].find(([category, keywords]) => keywords.some(keyword => primaryQuestion.includes(keyword))) ||
+                ['Services > Account & Services'])[0],
+              text: primaryQuestion,
+              answers: [{
+                id: 'a-demo',
+                text: primaryAnswer,
+                count: 1,
+                customerRating: rates,
+                representativeRating: 0,
+                rating: rates,
+              }],
+            });
+          });
+      });
   }
 
   delay = callback => {
@@ -55,16 +98,23 @@ class App extends Component {
   handleSearch = e => {
     e.preventDefault();
     this.searchRef.current.blur();
-    this.delay(() => {
-      const search = this.state.keyword;
-      this.setState({ search, questionId: '' });
-    });
+    const search = this.state.keyword;
+    this.setState({ loading: true, officialSearch: null });
+    axios.get(`https://t-support-server.herokuapp.com/search/official?q=${encodeURIComponent(search)}`)
+      .then(response => {
+        const [officialSearch] = response.data.list;
+        console.log(officialSearch);
+        this.setState({ loading: false, search, questionId: '', officialSearch });
+      });
   };
 
   handleClickQuestionCard = questionId => {
-    this.delay(() => {
-      this.setState({ questionId });
-    });
+    this.setState({ loading: true, communitySearch: null });
+    axios.get(`https://t-support-server.herokuapp.com/search/community?q=${encodeURIComponent(this.state.search)}`)
+      .then(response => {
+        const [communitySearch] = response.data.list;
+        this.setState({ loading: false, questionId, communitySearch });
+      });
   };
 
   handleChangeRepresentativeId = e => {
@@ -86,7 +136,7 @@ class App extends Component {
   };
 
   render() {
-    const { keyword, search, questionId, representativeId, password, login, loading } = this.state;
+    const { keyword, search, questionId, representativeId, password, login, loading, officialSearch, communitySearch } = this.state;
 
     const question = QUESTIONS.find(q => q.id === questionId);
 
@@ -109,6 +159,14 @@ class App extends Component {
               </div>
             </div> :
             <div className="questions">
+              {
+                officialSearch &&
+                <a className="official" href={officialSearch.resources.html.ref} target="_blank">
+                  <img className="avatar" src={officialSearch.resources.avatar.ref}/>
+                  <span className="name">{officialSearch.name}</span>
+                  <span className="description">{officialSearch.description}</span>
+                </a>
+              }
               {
                 QUESTIONS.map(({ id, category, text, answers }) => (
                   <div className="question-card" key={id} onClick={() => this.handleClickQuestionCard(id)}>
@@ -142,17 +200,25 @@ class App extends Component {
                     <div className="ratings">
                       <span className="rating">
                         <b>Customers</b> rated <FontAwesomeIcon className="star"
-                                                                icon={faStar}/><b>{customerRating.toFixed(1)}</b>
+                                                                icon={faStar}/><b>{customerRating ? customerRating.toFixed(1) : 'N/A'}</b>
                       </span>
                       <span className="rating">
                         <b>Representatives</b> rated <FontAwesomeIcon className="star"
-                                                                      icon={faStar}/><b>{representativeRating.toFixed(1)}</b>
+                                                                      icon={faStar}/><b>{representativeRating ? representativeRating.toFixed(1) : 'N/A'}</b>
                       </span>
                     </div>
                   </div>
                 </div>,
                 <div className="divider-dim" key={`${id}-divider`}/>,
               ])
+            }
+            {
+              communitySearch &&
+              <a className="search" href={communitySearch.resources.html.ref} target="_blank">
+                <span className="subject">{communitySearch.subject}</span>
+                <span className="link">{communitySearch.resources.html.ref}</span>
+                <span className="body" dangerouslySetInnerHTML={{ __html: communitySearch.highlightBody }}/>
+              </a>
             }
           </div>
         }

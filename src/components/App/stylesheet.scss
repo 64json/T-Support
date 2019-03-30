@@ -128,6 +128,45 @@
     flex-wrap: wrap;
     padding: 2rem;
 
+    .official {
+      position: relative;
+      border: 2px solid $color-tertiary;
+      margin: 1rem;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 16rem;
+      height: 16rem;
+      overflow: hidden;
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 12rem;
+        background-image: linear-gradient(to top, white, rgba(white, 0));
+      }
+
+      .avatar {
+        height: 6rem;
+        width: auto;
+        margin-bottom: .5rem;
+      }
+
+      .name {
+        font-size: $font-size-large;
+        font-weight: 500;
+        margin-bottom: .5rem;
+      }
+
+      .description {
+        text-align: center;
+      }
+    }
+
     .question-card {
       position: relative;
       border: 2px solid $color-primary;
@@ -221,6 +260,8 @@
       padding: 1rem 0;
 
       &:first-child {
+        margin-bottom: 1rem;
+
         &:after {
           font-family: "FontAwesome";
           font-size: $font-size-largest;
@@ -302,6 +343,38 @@
 
       &:last-child {
         display: none;
+      }
+    }
+
+    .search {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 1rem 0;
+      margin-top: 1rem;
+
+      &:after {
+        content: '';
+        padding: .3rem;
+        position: absolute;
+        top: -1rem;
+        bottom: -1rem;
+        left: -2rem;
+        right: -2rem;
+        margin: -2px;
+        border: 4px solid $color-tertiary;
+      }
+
+      .subject {
+        font-weight: 500;
+        color: $color-secondary;
+        font-size: $font-size-large;
+      }
+
+      .link {
+        color: $color-primary;
+        margin-bottom: .5rem;
+        font-size: $font-size-small;
       }
     }
   }

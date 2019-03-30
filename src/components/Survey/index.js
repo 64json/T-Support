@@ -25,10 +25,14 @@ class Survey extends Component {
       });
   }
 
+  handleChangeRate = star => {
+    axios.post('https://t-support-server.herokuapp.com/rates', { rates: star });
+  };
+
   render() {
     const { transcripts } = this.state;
 
-    return transcripts && (
+    return (
       <div className="Survey">
         <div className="nav">
           <div className="logo" onClick={this.handleReset}>
@@ -40,7 +44,7 @@ class Survey extends Component {
             Thank you for contacting our T-Mobile representative. Here is the record.
         </span>
         {
-          transcripts.conversations.map((message, i) => (
+          transcripts && transcripts.conversations.map((message, i) => (
             <span key={i}
                   className={classes('balloon', ((i % 2 === 1) ^ (transcripts.firstSpeaker === 1)) ? 'question' : 'answer')}>{message}</span>
           ))
@@ -48,7 +52,7 @@ class Survey extends Component {
         <span className="label">
             How helpful was our answer to your question?
         </span>
-        <Rate className="rate"/>
+        <Rate className="rate" onChange={this.handleChangeRate}/>
       </div>
     );
   }
