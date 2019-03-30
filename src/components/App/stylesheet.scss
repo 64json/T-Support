@@ -150,6 +150,19 @@
         background-image: linear-gradient(to top, white, rgba(white, 0));
       }
 
+      &:hover {
+         background-color: $color-tertiary;
+         color: white;
+
+         &:after {
+           background-image: linear-gradient(to top, $color-tertiary, rgba($color-tertiary, 0));
+         }
+
+         .answer {
+           color: $color-quaternary;
+         }
+       }
+
       .avatar {
         height: 6rem;
         width: auto;
