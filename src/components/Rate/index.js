@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './stylesheet.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import { classes } from '../../common/utils';
+import { classes } from 'common/utils';
+import './stylesheet.scss';
 
 class Rate extends Component {
   constructor(props) {
@@ -28,10 +28,11 @@ class Rate extends Component {
   };
 
   render() {
+    const { className } = this.props;
     const { hoveredStar, selectedStar } = this.state;
 
     return (
-      <div className="Rate" onMouseOut={this.handleMouseOut}>
+      <div className={classes('Rate', className)} onMouseOut={this.handleMouseOut}>
         {
           new Array(5).fill(0).map((_, i) => (
             <FontAwesomeIcon icon={faStar} className={classes('star', i < (hoveredStar || selectedStar) && 'selected')}
