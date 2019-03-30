@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import { combineReducers, createStore } from 'redux';
 import { routerReducer } from 'react-router-redux';
 import { App, Survey } from 'components';
@@ -12,11 +12,11 @@ const store = createStore(combineReducers({ ...reducers, routing: routerReducer 
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <HashRouter>
       <Switch>
         <Route exact path="/" component={App}/>
         <Route exact path="/survey" component={Survey}/>
       </Switch>
-    </BrowserRouter>
+    </HashRouter>
   </Provider>,
   document.getElementById('root'));

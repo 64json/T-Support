@@ -13,9 +13,7 @@ class Survey extends Component {
         <div className="nav">
           <div className="logo" onClick={this.handleReset}>
             <img className="image" src={logoWhiteSquare}/>
-            <span className="text">
-            - Support
-          </span>
+            <span className="text">- Support</span>
           </div>
         </div>
         <span className="label">
