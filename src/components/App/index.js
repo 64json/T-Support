@@ -39,16 +39,22 @@ class App extends Component {
         axios.get('https://t-support-server.herokuapp.com/rates')
           .then(response => {
             const { rates } = response.data;
-            let i = firstSpeaker;
+
+            let primaryQuestion = '';
+            for (let i = firstSpeaker - 1; i < conversations.length; i += 2) {
+              const question = conversations[i];
+              if (primaryQuestion.length < question.length) {
+                primaryQuestion = question;
+              }
+            }
+
             let primaryAnswer = '';
-            while (i < conversations.length) {
+            for (let i = firstSpeaker % 2; i < conversations.length; i += 2) {
               const answer = conversations[i];
               if (primaryAnswer.length < answer.length) {
                 primaryAnswer = answer;
               }
-              i += 2;
             }
-            const primaryQuestion = conversations[conversations.indexOf(primaryAnswer) - 1];
             QUESTIONS.push({
               id: 'q-demo',
               category: ([
@@ -58,7 +64,7 @@ class App extends Component {
                   ['Services > Network & Coverage', ['network', 'coverage', 'roaming']],
                 ].find(([category, keywords]) => keywords.some(keyword => primaryQuestion.includes(keyword))) ||
                 ['Services > Account & Services'])[0],
-              text: capitalize(primaryQuestion.replace(/^(hello|hi|hey|good|great|sarah|fine|morning|afternoon|evening|night|doing|ok|i|m|am|how|are|you|\W)+[?!. ]+/i, '')),
+              text: capitalize(primaryQuestion.replace(/^(a|hello|hi|hey|good|great|sarah|fine|morning|afternoon|evening|night|doing|ok|i|m|am|how|are|you|\W)+[?!. ]+/i, '')),
               answers: [{
                 id: 'a-demo',
                 text: primaryAnswer,
