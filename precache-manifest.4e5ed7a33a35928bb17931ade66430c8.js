@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/T-Support/static/media/logo-magenta-square.2fd73d15.png"
   },
   {
-    "revision": "3ecad6f5df7ab1d2b79e",
-    "url": "/T-Support/static/css/main.6d4b780a.chunk.css"
+    "revision": "1bbe2fd101f0ac8f7847",
+    "url": "/T-Support/static/css/main.79bef4e4.chunk.css"
   },
   {
     "revision": "d0ed079d9a590c4b77a5",
@@ -24,8 +24,8 @@ self.__precacheManifest = [
     "url": "/T-Support/static/media/logo-white-square.3fdd39e5.png"
   },
   {
-    "revision": "3ecad6f5df7ab1d2b79e",
-    "url": "/T-Support/static/js/main.589fa457.chunk.js"
+    "revision": "1bbe2fd101f0ac8f7847",
+    "url": "/T-Support/static/js/main.ee209342.chunk.js"
   },
   {
     "revision": "af7ae505a9eed503f8b8e6982036873e",
@@ -48,7 +48,7 @@ self.__precacheManifest = [
     "url": "/T-Support/static/css/2.c9e875f3.chunk.css"
   },
   {
-    "revision": "1a6191d6686ae3c82342affa40ec8cca",
+    "revision": "47e8e362a5e85a729d5d4e2f2c6b058e",
     "url": "/T-Support/index.html"
   }
 ];
