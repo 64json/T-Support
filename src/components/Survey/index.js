@@ -1,14 +1,34 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import axios from 'axios';
 import { actions } from 'reducers';
 import { Rate } from 'components';
+import { classes } from 'common/utils';
 import logoWhiteSquare from 'statics/logo-white-square.png';
 import './stylesheet.scss';
 
 class Survey extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      transcripts: null,
+    };
+  }
+
+  componentDidMount() {
+    axios.get('https://t-support-server.herokuapp.com/transcripts')
+      .then(response => {
+        const { transcripts } = response.data;
+        this.setState({ transcripts });
+      });
+  }
+
   render() {
-    return (
+    const { transcripts } = this.state;
+
+    return transcripts && (
       <div className="Survey">
         <div className="nav">
           <div className="logo" onClick={this.handleReset}>
@@ -19,12 +39,12 @@ class Survey extends Component {
         <span className="label">
             Thank you for contacting our T-Mobile representative. Here is the record.
         </span>
-        <span className="balloon question">
-            How soon before I can add the global plus one feature to my business account?
-        </span>
-        <span className="balloon answer">
-            Are you asking how soon you can add it after making the account changes? You should be able to get the feature right away.
-        </span>
+        {
+          transcripts.conversations.map((message, i) => (
+            <span
+              className={classes('balloon', ((i % 2 === 1) ^ (transcripts.firstSpeaker === 1)) ? 'question' : 'answer')}>{message}</span>
+          ))
+        }
         <span className="label">
             How helpful was our answer to your question?
         </span>
