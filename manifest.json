@@ -1,0 +1,15 @@
+{
+  "short_name": "T-Support",
+  "name": "T-Support",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#CD2FBB",
+  "background_color": "#CD2FBB"
+}
