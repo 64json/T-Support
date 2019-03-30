@@ -25,6 +25,8 @@ class App extends Component {
       login: '',
       loading: false,
     };
+
+    this.searchRef = React.createRef();
   }
 
   delay = callback => {
@@ -52,6 +54,7 @@ class App extends Component {
 
   handleSearch = e => {
     e.preventDefault();
+    this.searchRef.current.blur();
     this.delay(() => {
       const search = this.state.keyword;
       this.setState({ search, questionId: '' });
@@ -88,14 +91,14 @@ class App extends Component {
     const question = QUESTIONS.find(q => q.id === questionId);
 
     return (
-      <div className="App">
+      <div className={classes('App', (!login || !search) && 'no-scroll')}>
         <form className={classes('nav', search && 'top')} onSubmit={this.handleSearch}>
           <div className="logo" onClick={this.handleReset}>
             <img className="image" src={logoWhiteSquare}/>
             <span className="text">- Support</span>
           </div>
           <input className="search" type="text" value={keyword} onChange={this.handleChangeKeyword}
-                 placeholder="Search a topic"/>
+                 placeholder="Search a topic" ref={this.searchRef}/>
         </form>
         {
           question ?

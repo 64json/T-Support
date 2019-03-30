@@ -7,7 +7,12 @@
   font-size: $font-size-medium;
   color: $color-secondary;
   min-height: 100vh;
-  box-sizing: border-box;
+  padding-top: 5rem;
+
+  &.no-scroll {
+    height: 100vh;
+    overflow-y: hidden;
+  }
 
   .nav {
     position: fixed;
@@ -23,9 +28,8 @@
     background-color: $color-primary;
 
     &.top {
-      align-self: stretch;
-      position: static;
       height: 5rem;
+      bottom: auto;
       flex-direction: row;
 
       .logo {
@@ -39,7 +43,7 @@
 
         .text {
           font-size: 1.5rem;
-          font-weight: bold;
+          font-weight: 500;
           white-space: nowrap;
         }
       }
@@ -66,7 +70,7 @@
 
       .text {
         font-size: 3rem;
-        font-weight: bold;
+        font-weight: 500;
         white-space: nowrap;
       }
     }
@@ -81,7 +85,7 @@
       font-family: inherit;
       outline: none;
       text-align: center;
-      font-weight: bold;
+      font-weight: 500;
       margin-bottom: 4rem;
 
       &::placeholder {
@@ -111,13 +115,14 @@
 
       .question {
         font-size: $font-size-largest;
-        font-weight: bold;
+        font-weight: 500;
       }
     }
   }
 
   .questions {
-    width: $width-body-wide;
+    width: 100%;
+    max-width: $width-body-wide;
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
@@ -127,11 +132,11 @@
       position: relative;
       border: 2px solid $color-primary;
       margin: 1rem;
-      padding: 2rem;
+      padding: 1rem;
       display: flex;
       flex-direction: column;
-      width: 14rem;
-      height: 14rem;
+      width: 16rem;
+      height: 16rem;
       overflow: hidden;
       cursor: pointer;
 
@@ -166,10 +171,6 @@
         }
       }
 
-      > * {
-        flex-shrink: 0;
-      }
-
       .category {
         margin-bottom: .5rem;
         font-size: $font-size-small;
@@ -177,7 +178,7 @@
 
       .question {
         font-size: $font-size-large;
-        font-weight: bold;
+        font-weight: 500;
       }
 
       .divider {
@@ -188,7 +189,7 @@
       }
 
       .answer {
-        font-weight: bold;
+        font-weight: 500;
         color: $color-tertiary;
       }
 
@@ -228,7 +229,7 @@
           display: flex;
           flex-direction: column;
           align-items: flex-end;
-          font-weight: bold;
+          font-weight: 500;
           padding: .3rem;
           position: absolute;
           top: -1rem;
@@ -251,7 +252,7 @@
       }
 
       .text {
-        font-weight: bold;
+        font-weight: 500;
         color: $color-secondary;
         font-size: $font-size-large;
         margin-bottom: 1.5rem;
@@ -332,7 +333,7 @@
 
       .text {
         font-size: 3rem;
-        font-weight: bold;
+        font-weight: 500;
       }
     }
 
@@ -345,7 +346,7 @@
       color: $color-secondary;
       font-family: inherit;
       outline: none;
-      font-weight: bold;
+      font-weight: 500;
       margin-bottom: 1rem;
 
       &::placeholder {
@@ -361,11 +362,10 @@
       width: 16rem;
       font-family: inherit;
       outline: none;
-      font-weight: bold;
+      font-weight: 500;
       margin-top: 1rem;
       margin-bottom: 4rem;
       color: white;
-      box-sizing: content-box;
       cursor: pointer;
     }
   }

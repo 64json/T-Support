@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500');
 @import "~common/constants";
 
 html {
@@ -21,4 +21,9 @@ a {
 *:after,
 *:before {
   white-space: pre-wrap;
+}
+
+* {
+  box-sizing: border-box;
+  flex-shrink: 0;
 }
