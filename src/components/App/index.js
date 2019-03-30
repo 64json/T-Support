@@ -6,7 +6,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { actions } from 'reducers';
 import logoWhiteSquare from 'statics/logo-white-square.png';
 import logoMagentaSquare from 'statics/logo-magenta-square.png';
-import { classes } from 'common/utils';
+import { classes, similarity } from 'common/utils';
 import { QUESTIONS } from 'common/dummies';
 import { Rate } from 'components';
 import 'font-awesome/css/font-awesome.min.css';
@@ -18,8 +18,8 @@ class App extends Component {
 
     this.initialState = {
       keyword: '',
-      search: 'a',
-      questionId: undefined,
+      search: '',
+      questionId: '',
       representativeId: '',
       password: '',
       login: 'b',
@@ -30,6 +30,8 @@ class App extends Component {
 
   handleChangeKeyword = e => {
     const keyword = e.target.value;
+    const similarities = QUESTIONS.map(q => similarity(keyword, q.text));
+    QUESTIONS.sort((q1, q2) => similarities[QUESTIONS.indexOf(q1)] - similarities[QUESTIONS.indexOf(q2)]);
     this.setState({ keyword });
   };
 
@@ -40,7 +42,7 @@ class App extends Component {
   handleSearch = e => {
     e.preventDefault();
     const search = this.state.keyword;
-    this.setState({ search });
+    this.setState({ search, questionId: '' });
   };
 
   handleClickQuestionCard = questionId => {
