@@ -40,19 +40,19 @@ class App extends Component {
           .then(response => {
             const { rates } = response.data;
 
-            let primaryQuestion = '';
-            for (let i = firstSpeaker - 1; i < conversations.length; i += 2) {
-              const question = conversations[i];
-              if (primaryQuestion.length < question.length) {
-                primaryQuestion = question;
-              }
-            }
-
             let primaryAnswer = '';
             for (let i = firstSpeaker % 2; i < conversations.length; i += 2) {
               const answer = conversations[i];
               if (primaryAnswer.length < answer.length) {
                 primaryAnswer = answer;
+              }
+            }
+
+            let primaryQuestion = '';
+            for (let i = firstSpeaker - 1; i < conversations.indexOf(primaryAnswer); i += 2) {
+              const question = conversations[i];
+              if (primaryQuestion.length < question.length) {
+                primaryQuestion = question;
               }
             }
             QUESTIONS.push({
