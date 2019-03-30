@@ -58,7 +58,7 @@ class App extends Component {
                   ['Services > Network & Coverage', ['network', 'coverage', 'roaming']],
                 ].find(([category, keywords]) => keywords.some(keyword => primaryQuestion.includes(keyword))) ||
                 ['Services > Account & Services'])[0],
-              text: primaryQuestion,
+              text: primaryQuestion.replace(/^(hello|hi|hey|good|great|sarah|fine|morning|afternoon|evening|night|doing|ok|i|m|am|how|are|you|\W)+[?!. ]+/i, ''),
               answers: [{
                 id: 'a-demo',
                 text: primaryAnswer,
@@ -103,7 +103,6 @@ class App extends Component {
     axios.get(`https://t-support-server.herokuapp.com/search/official?q=${encodeURIComponent(search)}`)
       .then(response => {
         const [officialSearch] = response.data.list;
-        console.log(officialSearch);
         this.setState({ loading: false, search, questionId: '', officialSearch });
       });
   };
