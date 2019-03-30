@@ -246,11 +246,11 @@ const QUESTIONS = [{
 QUESTIONS.forEach(q => {
   q.answers.forEach(a => {
     a.count = Math.random() * 25 + 15 | 0;
-    a.customerRating = (Math.random() * 3 + 2).toFixed(1);
-    a.representativeRating = (Math.random() * 3 + 2).toFixed(1);
+    a.customerRating = Math.random() * 3 + 2;
+    a.representativeRating = Math.random() * 3 + 2;
     a.rating = a.customerRating + a.representativeRating;
   });
-  q.answers.sort((a1, a2) => a1.rating - a2.rating);
+  q.answers.sort((a1, a2) => a2.rating - a1.rating);
 });
 
 export {

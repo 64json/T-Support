@@ -142,11 +142,11 @@ class App extends Component {
                     <div className="ratings">
                       <span className="rating">
                         <b>Customers</b> rated <FontAwesomeIcon className="star"
-                                                                icon={faStar}/><b>{customerRating}</b>
+                                                                icon={faStar}/><b>{customerRating.toFixed(1)}</b>
                       </span>
                       <span className="rating">
                         <b>Representatives</b> rated <FontAwesomeIcon className="star"
-                                                                      icon={faStar}/><b>{representativeRating}</b>
+                                                                      icon={faStar}/><b>{representativeRating.toFixed(1)}</b>
                       </span>
                     </div>
                   </div>

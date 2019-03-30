@@ -41,8 +41,8 @@ class Survey extends Component {
         </span>
         {
           transcripts.conversations.map((message, i) => (
-            <span
-              className={classes('balloon', ((i % 2 === 1) ^ (transcripts.firstSpeaker === 1)) ? 'question' : 'answer')}>{message}</span>
+            <span key={i}
+                  className={classes('balloon', ((i % 2 === 1) ^ (transcripts.firstSpeaker === 1)) ? 'question' : 'answer')}>{message}</span>
           ))
         }
         <span className="label">
