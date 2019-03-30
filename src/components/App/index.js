@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { actions } from 'reducers';
-import './stylesheet.scss';
 import logoWhiteSquare from 'statics/logo-white-square.png';
+import logoMagentaSquare from 'statics/logo-magenta-square.png';
 import { classes } from 'common/utils';
 import { QUESTIONS } from 'common/dummies';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { Rate } from 'components';
+import 'font-awesome/css/font-awesome.min.css';
+import './stylesheet.scss';
 
 class App extends Component {
   constructor(props) {
@@ -15,11 +18,11 @@ class App extends Component {
 
     this.initialState = {
       keyword: '',
-      search: '',
+      search: 'a',
       questionId: undefined,
       representativeId: '',
       password: '',
-      login: '',
+      login: 'b',
     };
 
     this.state = this.initialState;
@@ -113,11 +116,8 @@ class App extends Component {
                   <span className="text">{text}</span>
                   <div className="ratingContainer">
                     <div className="rate">
-                      {
-                        new Array(5).fill(0).map((_, i) => (
-                          <FontAwesomeIcon icon={faStar} className={classes('star', i < 3 && 'selected')} key={i}/>
-                        ))
-                      }
+                      <span className="label">How informative is it?</span>
+                      <Rate/>
                     </div>
                     <div className="ratings">
                       <span className="rating">
@@ -138,7 +138,7 @@ class App extends Component {
           !login &&
           <form className="login" onSubmit={this.handleLogin}>
             <div className="logo" onClick={this.handleReset}>
-              <img className="image" src={logoWhiteSquare}/>
+              <img className="image" src={logoMagentaSquare}/>
               <span className="text">
               - Support
             </span>

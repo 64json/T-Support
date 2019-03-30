@@ -1,0 +1,13 @@
+@import "~common/constants";
+
+.Rate {
+  .star {
+    font-size: $font-size-large;
+    color: $color-quaternary;
+    cursor: pointer;
+
+    &.selected {
+      color: $color-star;
+    }
+  }
+}
